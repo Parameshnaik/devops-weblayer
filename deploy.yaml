@@ -9,14 +9,15 @@
      state: stopped
  - name: send the zip to remote server
    copy:
-     src: weblayer-$build.zip
+     src: weblayer-$buildnumber.zip
      dest: /tmp/
  - name: unzip the file in remote server
    unarchive:
-     src: /tmp/weblayer-$build.zip
+     src: /tmp/weblayer-$buildnumber.zip
      dest: /var/www/html/
      remote_src: yes
  - name: start the apache
    service:
      name: httpd
      state: started
+
